@@ -383,25 +383,27 @@ class EnBuilder(WhisperTRTBuilder):
 class TinyEnBuilder(EnBuilder):
     model: str = "tiny.en"
     
-
 class BaseEnBuilder(EnBuilder):
     model: str = "base.en"
 
-
 class SmallEnBuilder(EnBuilder):
     model: str = "small.en"
-    
+
+class MediumEnBuilder(EnBuilder):
+    model: str = "medium.en"
 
 MODEL_FILENAMES = {
     "tiny.en": "tiny_en_trt.pth",
     "base.en": "base_en_trt.pth",
-    "small.en": "small_en_trt.pth"
+    "small.en": "small_en_trt.pth",
+    "medium.en": "medium_en_trt.pth"
 }
 
 MODEL_BUILDERS = {
     "tiny.en": TinyEnBuilder,
     "base.en": BaseEnBuilder,
-    "small.en": SmallEnBuilder
+    "small.en": SmallEnBuilder,
+    "medium.en": MediumEnBuilder
 }
 
 def load_trt_model(name: str, path: Union[str, None] = None, build: bool = True, verbose: bool = False):
